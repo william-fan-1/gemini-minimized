@@ -38,7 +38,7 @@ parameter and rejects every delivery with 422.
 
 import modal
 
-app = modal.App("explaining-markets-claude-minimized")
+app = modal.App("explaining-markets-gemini-minimized")
 
 image = (
     modal.Image.debian_slim()
@@ -58,8 +58,8 @@ image = (
 #
 # Marking an event done up front would be the bug: a failed prediction would
 # look handled. This Dict persists across redeploys, so "done" is durable.
-seen_webhooks = modal.Dict.from_name("em-webhook-dedupe-claude-minimized", create_if_missing=True)
-prediction_ledger = modal.Dict.from_name("em-prediction-ledger-claude-minimized", create_if_missing=True)
+seen_webhooks = modal.Dict.from_name("em-webhook-dedupe-gemini-minimized", create_if_missing=True)
+prediction_ledger = modal.Dict.from_name("em-prediction-ledger-gemini-minimized", create_if_missing=True)
 
 # Credentials are read from your local .env at deploy time (see .env.example).
 # Prefer Modal's secret store instead? See docs/advanced.md.
@@ -218,7 +218,7 @@ def predict_and_submit(event: dict, webhook_id: str | None = None):
 
 
 @app.function(image=image, secrets=secrets)
-@modal.asgi_app(label="claude-minimized")
+@modal.asgi_app(label="gemini-minimized")
 def web():
     from fastapi import FastAPI, Request, Response
 
