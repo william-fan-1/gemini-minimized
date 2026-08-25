@@ -11,8 +11,7 @@
 #   prompt
 #
 # ⚠ Most trends here are regime_2026Q3. This file has a shorter half-life than
-#   _global.yaml by design. Treat confidence levels as provisional until the
-#   outcomes ledger has real evidence behind them.
+#   _global.yaml by design. 
 # =============================================================================
 
 meta:
@@ -36,8 +35,7 @@ quarter_calibration:
     context: >
       Explicit negative asymmetry this season: beats are rewarded, but even
       material misses are patterning severe selloffs against elevated
-      expectations. This is a severity consideration, not a mechanical percentile deduction.
-    confidence: medium
+      expectations. This is a severity consideration, not a mechanical percentile deduction
 
   - id: Q3-CAL-03
     pattern: >
@@ -48,8 +46,7 @@ quarter_calibration:
       An oil shock (WTI +77% YTD, sustained above $90/bbl) and a contested
       Fed path are the shared macro shock. Cost and rate commentary is being
       listened to far more closely than in a normal quarter. Commentary changes
-      the estimate only when it materially alters the forward earnings path.
-    confidence: medium
+      the estimate only when it materially alters the forward earnings path
 
 commercial_products:
   label: Commercial Products
@@ -59,17 +56,14 @@ commercial_products:
       pattern: Volume growth with maintained or expanded margin despite tariffs and metals/energy inflation.
       observed_significance: positive
       context: Caterpillar paired 24% revenue growth with a 21.9% adjusted operating margin; pass-through is scarcer than demand.
-      confidence: high
     - id: COMMERCIAL_PRODUCTS_2
       pattern: Revenue or volume beats but margin guidance falls because price realization lags input costs.
       observed_significance: negative
       context: With manufacturing expanding, negative price-cost increasingly reads as a company-specific execution failure.
-      confidence: high
     - id: COMMERCIAL_PRODUCTS_3
       pattern: Backlog and orders rise with higher production or EPS guidance and controlled working capital.
       observed_significance: positive
       context: Backlog conversion validates durable demand; advance ordering or cash absorption lowers its quality.
-      confidence: medium_high
 
 commercial_services:
   label: Commercial Services
@@ -79,17 +73,14 @@ commercial_services:
       pattern: Organic growth accompanies stable retention, utilization, and labor-adjusted margin.
       observed_significance: positive
       context: A productivity-backed beat is more repeatable than one produced by pricing or temporary labor underspend.
-      confidence: medium
     - id: COMMERCIAL_SERVICES_2
       pattern: Revenue beats mainly through price while transactions, billable volume, or utilization decline.
       observed_significance: negative
       context: Price-only growth is vulnerable when contracts reset and is poor evidence of healthy end demand.
-      confidence: medium
     - id: COMMERCIAL_SERVICES_3
       pattern: AI or automation savings are quantified and flow into margin or guidance.
       observed_significance: positive
       context: Investors reward visible cost-to-serve improvement, not unquantified AI narratives or recurring restructuring.
-      confidence: medium
 
 commercial_transportation:
   label: Commercial Transportation
@@ -99,17 +90,14 @@ commercial_transportation:
       pattern: Contractual pricing and fuel surcharges offset higher fuel costs while core volumes remain stable.
       observed_significance: positive
       context: Formulaic cost recovery protects earnings without requiring a favorable oil forecast.
-      confidence: high
     - id: COMMERCIAL_TRANSPORTATION_2
       pattern: Headline revenue rises on fuel surcharges while core shipments and operating ratio deteriorate.
       observed_significance: negative
       context: Surcharge revenue is not demand and can conceal network or shipment weakness.
-      confidence: high
     - id: COMMERCIAL_TRANSPORTATION_3
       pattern: Productivity and service gains improve the operating ratio and support raised guidance despite fuel inflation.
       observed_significance: positive
       context: Durable network efficiency is more valuable than nominal revenue in an oil shock.
-      confidence: high
 
 other_business_products_and_services:
   label: Other Business Products and Services
@@ -119,17 +107,14 @@ other_business_products_and_services:
       pattern: Recurring revenue, renewals, and backlog rise while gross margin holds.
       observed_significance: positive
       context: Multi-quarter renewal strength gives more visibility than a one-quarter revenue beat.
-      confidence: medium
     - id: OTHER_BUSINESS_PRODUCTS_AND_SERVICES_2
       pattern: Growth is acquisition-led while organic sales stagnate and leverage rises.
       observed_significance: negative
       context: Two-sided rates reduce the value of debt-funded inorganic growth and increase execution risk.
-      confidence: medium
     - id: OTHER_BUSINESS_PRODUCTS_AND_SERVICES_3
       pattern: Revenue guidance rises but profit guidance does not because tariffs, freight, or labor consume incremental sales.
       observed_significance: negative
       context: Industrial investors are prioritizing margin pass-through over demand commentary.
-      confidence: high
 
 apparel_and_accessories:
   label: Apparel and Accessories
@@ -139,17 +124,14 @@ apparel_and_accessories:
       pattern: North American traffic and comps weaken and sales guidance is cut despite an expense-driven EPS beat.
       observed_significance: negative
       context: Under Armour's revenue miss, 9% North America decline, and guide cut outweighed its EPS beat.
-      confidence: high
     - id: APPAREL_AND_ACCESSORIES_2
       pattern: Broad-based DTC and e-commerce growth accompanies lower inventory, gross-margin expansion, and raised guidance.
       observed_significance: positive
       context: Levi's 11% DTC growth, 19% e-commerce growth, and 7% inventory decline demonstrated profitable brand demand.
-      confidence: high
     - id: APPAREL_AND_ACCESSORIES_3
       pattern: Growth depends on promotions or price reductions while assortment rationalization remains unfinished.
       observed_significance: negative
       context: Persistent discounting signals weak brand equity and threatens the durability of margin recovery.
-      confidence: medium_high
 
 consumer_durables:
   label: Consumer Durables
@@ -159,17 +141,14 @@ consumer_durables:
       pattern: New-product innovation drives multi-category growth and an upward sales and EPS revision.
       observed_significance: positive
       context: SharkNinja's 22% sales growth and raised outlook showed that real innovation can create a replacement cycle.
-      confidence: high
     - id: CONSUMER_DURABLES_2
       pattern: Big-ticket orders soften because of housing turnover, financing costs, or consumer caution.
       observed_significance: negative
       context: Durable demand is unusually rate-sensitive while expected price increases compound affordability pressure.
-      confidence: high
     - id: CONSUMER_DURABLES_3
       pattern: Tariff refunds or temporary price increases lift EPS while underlying units and recurring margin fail to improve.
       observed_significance: negative
       context: One-time tariff benefits and accounting timing should be removed before extrapolating earnings quality.
-      confidence: medium_high
 
 consumer_non_durables:
   label: Consumer Non-Durables
@@ -179,17 +158,14 @@ consumer_non_durables:
       pattern: Organic growth is volume or concentrate-led, margins expand, and guidance rises.
       observed_significance: positive
       context: Coca-Cola's volume-supported organic growth and margin expansion showed resilient underlying demand.
-      confidence: high
     - id: CONSUMER_NON_DURABLES_2
       pattern: Sales rise primarily through pricing while unit volumes contract or trade-down accelerates.
       observed_significance: negative
       context: Price-only growth signals elasticity, private-label substitution, and future promotional reinvestment.
-      confidence: high
     - id: CONSUMER_NON_DURABLES_3
       pattern: Input inflation or distribution spending causes margin to decline despite positive volume.
       observed_significance: negative
       context: Positive volume is insufficient if oil, packaging, and tariff costs prevent earnings conversion.
-      confidence: medium_high
 
 media:
   label: Media
@@ -199,17 +175,14 @@ media:
       pattern: Streaming engagement, advertising, and subscription monetization accelerate together.
       observed_significance: positive
       context: Roku's beat across advertising and subscriptions showed scalable platform monetization.
-      confidence: high
     - id: MEDIA_2
       pattern: Linear advertising or studio revenue falls sharply even if cost cuts produce an EPS beat.
       observed_significance: negative
       context: Warner Bros. Discovery's surprise profit did not offset a 39% studio decline and 22% ad decline.
-      confidence: high
     - id: MEDIA_3
       pattern: A hit franchise drives measurable lift across box office, streaming, merchandise, and experiences.
       observed_significance: positive
       context: Cross-platform monetization improves content ROI and reduces dependence on a single release window.
-      confidence: high
 
 restaurants_hotels_and_leisure:
   label: Restaurants, Hotels and Leisure
@@ -219,17 +192,14 @@ restaurants_hotels_and_leisure:
       pattern: Comparable sales or RevPAR and traffic beat while full-year growth or margin guidance rises.
       observed_significance: positive
       context: Airbnb and Hyatt paired demand strength with forward confirmation rather than relying on a backward-looking beat.
-      confidence: high
     - id: RESTAURANTS_HOTELS_AND_LEISURE_2
       pattern: Restaurant comps are price-led with weak traffic or management pivots toward value offers.
       observed_significance: negative
       context: Promotion-dependent visits threaten restaurant-level margins and expose lower-income weakness.
-      confidence: high
     - id: RESTAURANTS_HOTELS_AND_LEISURE_3
       pattern: Premium, international, or event demand offsets lower-income domestic weakness with stable margins.
       observed_significance: positive
       context: Consumer demand is bifurcated rather than uniformly weak, favoring affluent and international exposure.
-      confidence: medium_high
 
 retail:
   label: Retail
@@ -239,17 +209,14 @@ retail:
       pattern: Traffic, transactions, or units weaken and guidance falls even where price or mix preserves sales.
       observed_significance: negative
       context: Paycheck-timed trips and smaller baskets make unit weakness a leading indicator of further pressure.
-      confidence: high
     - id: RETAIL_2
       pattern: Share gains from value positioning accompany disciplined inventory and stable gross margin.
       observed_significance: positive
       context: Inventory discipline distinguishes genuine share gains from promotions or channel stuffing.
-      confidence: high
     - id: RETAIL_3
       pattern: Growth relies on tax-refund timing, BNPL usage, or promotion rather than repeatable traffic and units.
       observed_significance: negative
       context: Borrowing- or timing-supported demand is less persistent and creates difficult comparisons.
-      confidence: medium_high
 
 services_non_financial:
   label: Services (Non-Financial)
@@ -259,17 +226,14 @@ services_non_financial:
       pattern: AI or self-service automation improves conversion or resolution and flows into margin or guidance.
       observed_significance: positive
       context: Airbnb's 45% automated issue resolution illustrates monetized operating leverage rather than AI narrative.
-      confidence: medium_high
     - id: SERVICES_NON_FINANCIAL_2
       pattern: Bookings or utilization weakens among lower-income customers and forward demand is reduced.
       observed_significance: negative
       context: Discretionary services have little inventory cushion, so weakening bookings rapidly create labor deleverage.
-      confidence: medium_high
     - id: SERVICES_NON_FINANCIAL_3
       pattern: Revenue beats through price or pass-through fees while productivity, retention, or recurring bookings deteriorate.
       observed_significance: negative
       context: Nominal service revenue is low quality when utilization and retention weaken.
-      confidence: medium
 
 transportation:
   label: Transportation
@@ -279,17 +243,14 @@ transportation:
       pattern: Fuel pressure rises materially and EPS guidance is cut despite healthy revenue.
       observed_significance: negative
       context: American Airlines' record revenue did not offset a fuel-driven earnings outlook cut.
-      confidence: high
     - id: TRANSPORTATION_2
       pattern: Yield, RASM, and premium revenue outgrow capacity, enabling higher EPS guidance despite fuel inflation.
       observed_significance: positive
       context: United's unit-revenue strength supported a guide raise despite nearly $6 billion of additional fuel cost.
-      confidence: high
     - id: TRANSPORTATION_3
       pattern: Capacity expands without unit-revenue improvement or management discounts to fill seats.
       observed_significance: negative
       context: Capacity is constructive only when yield and margins hold.
-      confidence: high
 
 other_consumer_products_and_services:
   label: Other Consumer Products and Services
@@ -299,17 +260,14 @@ other_consumer_products_and_services:
       pattern: Innovation drives demand across several categories and management raises revenue and EPS guidance.
       observed_significance: positive
       context: Broad new-product adoption is strong evidence that growth is company-specific rather than macro-driven.
-      confidence: high
     - id: OTHER_CONSUMER_PRODUCTS_AND_SERVICES_2
       pattern: Management reverses price increases or adds promotions because consumers resist tariff-driven pricing.
       observed_significance: negative
       context: Price reversals combine lower realization with inventory and markdown risk.
-      confidence: high
     - id: OTHER_CONSUMER_PRODUCTS_AND_SERVICES_3
       pattern: Reported growth is acquisition-, refund-, or event-driven while the legacy business contracts.
       observed_significance: negative
       context: Temporary and inorganic effects should be stripped out before extrapolating earnings.
-      confidence: medium_high
 
 energy_equipment:
   label: Energy Equipment
@@ -319,17 +277,14 @@ energy_equipment:
       pattern: Orders and backlog improve without speculative supplier capacity expansion.
       observed_significance: positive
       context: E&P customers are preserving capital discipline, favoring suppliers with firm commitments.
-      confidence: medium_high
     - id: ENERGY_EQUIPMENT_2
       pattern: Capex or inventory is raised ahead of firm customer commitments.
       observed_significance: negative
       context: Suppliers betting on an E&P spending boom risk overcapacity because tracked upstream capex remains lower year over year.
-      confidence: high
     - id: ENERGY_EQUIPMENT_3
       pattern: Pricing and recurring aftermarket mix offset steel, freight, and labor inflation.
       observed_significance: positive
       context: Service mix and price-cost execution make margin improvement more durable than one-time shipments.
-      confidence: medium_high
 
 exploration_production_and_refining:
   label: Exploration, Production and Refining
@@ -339,17 +294,14 @@ exploration_production_and_refining:
       pattern: Oil or refining windfall is returned through buybacks or dividends while capex stays flat or falls.
       observed_significance: positive
       context: Capital discipline is the sector's clearest preference; Exxon paired $17.2 billion of FCF with $9.4 billion of distributions.
-      confidence: high
     - id: EXPLORATION_PRODUCTION_AND_REFINING_2
       pattern: Capex rises to chase current prices without commensurate low-cost production or contracted returns.
       observed_significance: negative
       context: Large multi-year commitments raise peak-cycle risk and reverse the industry's successful restraint.
-      confidence: high
     - id: EXPLORATION_PRODUCTION_AND_REFINING_3
       pattern: Production or throughput guidance rises while unit costs and capex remain controlled.
       observed_significance: positive
       context: Operational gains at ConocoPhillips and Chevron are more persistent than commodity-price beats alone.
-      confidence: high
 
 energy_services:
   label: Energy Services
@@ -359,17 +311,14 @@ energy_services:
       pattern: International or offshore backlog and pricing improve while North American activity remains disciplined.
       observed_significance: positive
       context: Contracted activity is more durable than a spot-driven U.S. capex forecast.
-      confidence: medium_high
     - id: ENERGY_SERVICES_2
       pattern: Guidance assumes sharply higher U.S. rigs or completions or adds capacity without customer commitments.
       observed_significance: negative
       context: Tracked E&P capital investment is down 5% in 2026 despite higher oil.
-      confidence: high
     - id: ENERGY_SERVICES_3
       pattern: Service intensity, utilization, and pricing lift margins even on flat rig counts.
       observed_significance: positive
       context: Earnings growth without a volume boom validates technology mix and pricing power.
-      confidence: medium
 
 utilities:
   label: Utilities
@@ -379,17 +328,14 @@ utilities:
       pattern: A data-center load contract includes customer funding, minimum payments, and explicit regulatory recovery.
       observed_significance: positive
       context: Long-duration take-or-pay terms convert load growth into financeable earnings and limit stranded-asset risk.
-      confidence: high
     - id: UTILITIES_2
       pattern: Data-center capex or load forecasts rise without cost-allocation clarity or with concentration risk.
       observed_significance: negative
       context: EIA forecast cuts and political affordability concerns make unprotected capex a liability.
-      confidence: high
     - id: UTILITIES_3
       pattern: A favorable rate case supports reaffirmed EPS and FCF growth despite fuel inflation and higher rates.
       observed_significance: positive
       context: Multi-year regulatory recovery determines whether demand and capex create shareholder value.
-      confidence: high
 
 other_energy:
   label: Other Energy
@@ -399,17 +345,14 @@ other_energy:
       pattern: Fee-based or inflation-linked EBITDA guidance rises without material commodity sensitivity.
       observed_significance: positive
       context: Take-or-pay midstream cash flows continue to compound through oil and geopolitical volatility.
-      confidence: high
     - id: OTHER_ENERGY_2
       pattern: An acquisition or project is supported by long-term contracts and remains leverage-neutral or quickly accretive.
       observed_significance: positive
       context: Williams' contracted LNG-linked growth illustrates why financing discipline matters under unstable rates.
-      confidence: medium_high
     - id: OTHER_ENERGY_3
       pattern: FCF converts into distribution growth or buybacks without sacrificing balance-sheet targets.
       observed_significance: positive
       context: Formulaic cash returns are preferred to speculative reinvestment in the current energy regime.
-      confidence: high
 
 capital_markets_institutions:
   label: Capital Markets/Institutions
@@ -419,17 +362,14 @@ capital_markets_institutions:
       pattern: Investment-banking fees and announced pipelines accelerate without a material compensation-ratio increase.
       observed_significance: positive
       context: M&A and underwriting backlogs reveal durable operating leverage beyond reported fees.
-      confidence: high
     - id: CAPITAL_MARKETS_INSTITUTIONS_2
       pattern: Trading beats on volatility while client activity, financing balances, or wallet share weaken.
       observed_significance: negative
       context: High dispersion supports trading temporarily but does not prove franchise gains.
-      confidence: medium
     - id: CAPITAL_MARKETS_INSTITUTIONS_3
       pattern: Private-markets fundraising, realizations, fee-related earnings, or distributable earnings miss while marks remain optimistic.
       observed_significance: negative
       context: Weak cash realization exposes a gap between marks and fee-bearing or distributable value.
-      confidence: high
 
 commercial_banks:
   label: Commercial Banks
@@ -439,19 +379,16 @@ commercial_banks:
       pattern: NII or NIM guidance rises because deposit betas and funding costs stabilize rather than solely on a rate assumption.
       observed_significance: positive
       context: Industry NIM fell from 3.30% to 3.22%, making funding normalization the key proof point.
-      confidence: high
     - id: COMMERCIAL_BANKS_2
       pattern: >
         Provisions or criticized loans rise materially enough to worsen forward credit-cost
         guidance, or disclosed lower-FICO stress changes the expected loss path, despite an EPS beat.
       observed_significance: negative
       context: Provision builds are forward warnings and matter more than current charge-offs in a benign broad-credit backdrop.
-      confidence: high
     - id: COMMERCIAL_BANKS_3
       pattern: Loan growth slows and deposit costs stay sticky while management relies on buybacks to support EPS.
       observed_significance: negative
       context: Bank buybacks are routine capital maintenance, not a substitute for weakening spread income.
-      confidence: high
 
 insurance:
   label: Insurance
@@ -461,17 +398,14 @@ insurance:
       pattern: The underlying or accident-year combined ratio beats while premium growth remains adequate.
       observed_significance: positive
       context: Chubb and AIG showed that durable underwriting profitability is valued above catastrophe-distorted results.
-      confidence: high
     - id: INSURANCE_2
       pattern: Catastrophe losses rise but pricing, reserves, and underlying loss trends remain intact.
       observed_significance: positive
       context: Investors look through truly one-off catastrophe variance when core underwriting persists.
-      confidence: high
     - id: INSURANCE_3
       pattern: Premium growth is obtained by relaxing discipline in softening commercial lines.
       observed_significance: negative
       context: Growth below adequate pricing implies adverse future loss development.
-      confidence: high
 
 other_financial_services:
   label: Other Financial Services
@@ -481,17 +415,14 @@ other_financial_services:
       pattern: Payment and cross-border volumes remain resilient with stable take rates and credit losses.
       observed_significance: positive
       context: Real transaction growth is stronger evidence of consumer health than inflation-lifted nominal spending.
-      confidence: medium_high
     - id: OTHER_FINANCIAL_SERVICES_2
       pattern: Fintech revenue beats through transaction-margin expansion while active accounts or branded share deteriorate.
       observed_significance: negative
       context: Cost-led earnings without user or share growth have low persistence.
-      confidence: high
     - id: OTHER_FINANCIAL_SERVICES_3
       pattern: Consumer lenders raise reserves or funding-cost assumptions for lower-FICO borrowers.
       observed_significance: negative
       context: Digital and specialty lenders remain most exposed to the consumer-credit pocket still deteriorating.
-      confidence: high
 
 healthcare_devices_and_supplies:
   label: Healthcare Devices and Supplies
@@ -501,17 +432,14 @@ healthcare_devices_and_supplies:
       pattern: Procedure volumes stay strong and organic-sales guidance rises without gross-margin sacrifice.
       observed_significance: positive
       context: Procedure growth plus price-cost control supports multi-quarter medtech earnings persistence.
-      confidence: high
     - id: HEALTHCARE_DEVICES_AND_SUPPLIES_2
       pattern: Sales beat through volume but tariff, freight, component, or memory costs reduce margin guidance.
       observed_significance: negative
       context: High dispersion makes margin misses more important than device volume beats.
-      confidence: medium_high
     - id: HEALTHCARE_DEVICES_AND_SUPPLIES_3
       pattern: Product adoption, installed-base placements, and recurring consumables accelerate together.
       observed_significance: positive
       context: A larger installed base validates the product cycle and creates persistent recurring revenue.
-      confidence: high
 
 healthcare_services:
   label: Healthcare Services
@@ -521,17 +449,14 @@ healthcare_services:
       pattern: Medical-loss ratio or second-half utilization and risk-adjustment guidance deteriorates despite an EPS beat.
       observed_significance: negative
       context: Oscar Health showed that forward claims risk can overwhelm a large reported beat.
-      confidence: high
     - id: HEALTHCARE_SERVICES_2
       pattern: Admissions and procedures rise while labor expense per admission and agency staffing fall.
       observed_significance: positive
       context: Volume plus labor productivity creates durable hospital EBITDA leverage.
-      confidence: high
     - id: HEALTHCARE_SERVICES_3
       pattern: Membership growth depends on aggressive pricing or favorable risk selection while utilization assumptions worsen.
       observed_significance: negative
       context: Low-quality membership can reverse through risk adjustment and later claims.
-      confidence: high
 
 healthcare_technology_systems:
   label: Healthcare Technology Systems
@@ -541,17 +466,14 @@ healthcare_technology_systems:
       pattern: Bookings, backlog, and recurring subscriptions accelerate while implementation cycles shorten.
       observed_significance: positive
       context: Faster conversion of provider demand into recurring revenue improves both visibility and cash efficiency.
-      confidence: medium_high
     - id: HEALTHCARE_TECHNOLOGY_SYSTEMS_2
       pattern: AI produces paid module expansion, measurable adoption, or documented provider workflow savings.
       observed_significance: positive
       context: The market now demands monetization proof rather than generic AI positioning.
-      confidence: high
     - id: HEALTHCARE_TECHNOLOGY_SYSTEMS_3
       pattern: Revenue beats on services or implementation work while ARR, retention, or bookings slow.
       observed_significance: negative
       context: Low-margin services cannot offset deterioration in the recurring software engine.
-      confidence: high
 
 pharmaceuticals_and_biotechnology:
   label: Pharmaceuticals and Biotechnology
@@ -561,17 +483,14 @@ pharmaceuticals_and_biotechnology:
       pattern: GLP-1 volume and access gains exceed government or DTC price concessions and guidance rises.
       observed_significance: positive
       context: Lilly and Novo reactions show that the market is explicitly adjudicating volume against a $2-3 billion pricing drag.
-      confidence: high
     - id: PHARMACEUTICALS_AND_BIOTECHNOLOGY_2
       pattern: A favorable pivotal readout, regulatory decision, or launch materially increases probability-adjusted pipeline value.
       observed_significance: positive
       context: For pre-profit biotech, a single catalyst can overwhelm the financial statements and belongs in the tails.
-      confidence: high
     - id: PHARMACEUTICALS_AND_BIOTECHNOLOGY_3
       pattern: A current-product beat is offset by patent erosion without replacement-pipeline progress.
       observed_significance: negative
       context: Investors capitalize replacement cash flows, not the final strong quarters before generic competition.
-      confidence: high
 
 other_healthcare:
   label: Other Healthcare
@@ -581,17 +500,14 @@ other_healthcare:
       pattern: Life-science tools orders recover with book-to-bill above one and raised guidance.
       observed_significance: positive
       context: Order recovery confirms that the prolonged inventory and funding correction is ending.
-      confidence: high
     - id: OTHER_HEALTHCARE_2
       pattern: CRO or CDMO backlog rises while cancellations or delayed starts reduce conversion guidance.
       observed_significance: negative
       context: Backlog has low value when projects are unfunded, deferred, or cancelled.
-      confidence: medium_high
     - id: OTHER_HEALTHCARE_3
       pattern: Diagnostics volume rises with stable reimbursement and better mix rather than low-margin pass-through testing.
       observed_significance: positive
       context: Reimbursement and mix determine whether testing volume converts into persistent earnings.
-      confidence: medium
 
 communications_and_networking:
   label: Communications and Networking
@@ -601,17 +517,14 @@ communications_and_networking:
       pattern: AI and data-center networking revenue, orders, and guidance beat while margins hold.
       observed_significance: positive
       context: Arista's 38% growth and above-consensus guide demonstrated direct, monetized infrastructure demand.
-      confidence: high
     - id: COMMUNICATIONS_AND_NETWORKING_2
       pattern: Revenue beats while hyperscaler concentration rises or orders signal customer digestion.
       observed_significance: negative
       context: Customer concentration and lumpiness reduce the persistence of otherwise strong AI revenue.
-      confidence: medium_high
     - id: COMMUNICATIONS_AND_NETWORKING_3
       pattern: Backlog normalizes and product growth slows without offsetting security or subscription growth.
       observed_significance: negative
       context: Post-shortage backlog conversion is not recurring demand.
-      confidence: high
 
 computer_hardware:
   label: Computer Hardware
@@ -621,17 +534,14 @@ computer_hardware:
       pattern: AI-server revenue and backlog accelerate with improving cash conversion and margin guidance.
       observed_significance: positive
       context: Investors reward AI revenue only when it produces earnings and cash rather than working-capital consumption.
-      confidence: high
     - id: COMPUTER_HARDWARE_2
       pattern: DRAM or NAND inflation and shortages reduce device gross margin and cannot be passed through.
       observed_significance: negative
       context: Hardware assemblers sit on the losing side of memory inflation.
-      confidence: high
     - id: COMPUTER_HARDWARE_3
       pattern: Revenue is price-led while unit shipments, channel inventory, or end demand weaken.
       observed_significance: negative
       context: Price increases mask elasticity and create difficult comparisons.
-      confidence: high
 
 semiconductors:
   label: Semiconductors
@@ -641,19 +551,16 @@ semiconductors:
       pattern: AI, HBM, or custom-accelerator guidance exceeds elevated consensus and implies sequential acceleration.
       observed_significance: positive
       context: Broadcom showed that even rapid AI growth can sell off when forward guidance misses a very high bar.
-      confidence: high
     - id: SEMICONDUCTORS_2
       pattern: Memory pricing, long-term contracts, and HBM mix rise without an offsetting supply response.
       observed_significance: positive
       context: Persistent DRAM, NAND, and HBM scarcity makes producer price-mix gains unusually durable.
-      confidence: high
     - id: SEMICONDUCTORS_3
       pattern: >
         Forward guidance falls materially below an elevated consensus or implied buy-side bar,
         or customer digestion and margin pressure interrupt the expected sequential acceleration.
       observed_significance: negative
       context: In the strongest tape, a reported beat cannot offset a forward guide that breaks the expected acceleration path.
-      confidence: high
 
 it_services:
   label: IT Services
@@ -663,17 +570,14 @@ it_services:
       pattern: Bookings and book-to-bill improve with stable pricing and utilization.
       observed_significance: positive
       context: Forward bookings confirm that discretionary transformation spending is returning.
-      confidence: medium_high
     - id: IT_SERVICES_2
       pattern: Generative AI demand cannibalizes billable headcount faster than outcome-based revenue scales.
       observed_significance: negative
       context: Productivity accrues to customers unless contract structure lets the provider capture value.
-      confidence: high
     - id: IT_SERVICES_3
       pattern: Margins beat only through layoffs or subcontractor cuts while bookings and headcount decline.
       observed_significance: negative
       context: Cost takeout has low persistence if the demand engine remains weak.
-      confidence: high
 
 software:
   label: Software
@@ -685,19 +589,16 @@ software:
         revenue, cRPO, or guidance expectations, even if reported EPS and revenue beat.
       observed_significance: negative
       context: AI-enabled customers are accomplishing more with fewer licenses, making seat compression structural.
-      confidence: high
     - id: SOFTWARE_2
       pattern: Usage or outcome pricing produces accelerating cRPO, NRR, large deals, or AI ACV.
       observed_significance: positive
       context: ServiceNow's cRPO and AI ACV showed how monetized AI can offset seat pressure.
-      confidence: high
     - id: SOFTWARE_3
       pattern: >
         Reported results beat but billings, cRPO, or guidance fall below an elevated expectation
         bar or imply material forward deceleration. A merely in-line print is not sufficient by itself.
       observed_significance: negative
       context: Datadog's reaction showed that in-line forward metrics can read as a miss in this tape.
-      confidence: high
 
 other_information_technology:
   label: Other Information Technology
@@ -707,17 +608,14 @@ other_information_technology:
       pattern: AI infrastructure, security, or platform demand accelerates revenue and guidance with larger customer cohorts.
       observed_significance: positive
       context: Cloudflare showed that quantified monetization differentiates durable beneficiaries from generic AI claims.
-      confidence: high
     - id: OTHER_INFORMATION_TECHNOLOGY_2
       pattern: AI capex rises materially without revenue visibility, funding clarity, or FCF support.
       observed_significance: negative
       context: This quarter reverses the old response in which AI spending was automatically bullish.
-      confidence: high
     - id: OTHER_INFORMATION_TECHNOLOGY_3
       pattern: ARR and remaining obligations accelerate while sales efficiency improves.
       observed_significance: positive
       context: Mission-critical recurring demand plus improving acquisition economics supports durable growth.
-      confidence: medium_high
 
 agriculture:
   label: Agriculture
@@ -727,17 +625,14 @@ agriculture:
       pattern: Equipment or input volumes stabilize and dealer inventories fall without discount-driven margin damage.
       observed_significance: positive
       context: Inventory clearing and retail orders above shipments are the clearest evidence of a cyclical trough.
-      confidence: medium
     - id: AGRICULTURE_2
       pattern: Sales beat is price-led while farmer demand, acreage economics, and volumes weaken.
       observed_significance: negative
       context: Energy, fertilizer, and financing costs pressure farm budgets, making price-only growth low quality.
-      confidence: medium_high
     - id: AGRICULTURE_3
       pattern: Production or dealer shipments are cut faster than end demand, protecting working capital and margins.
       observed_significance: positive
       context: Disciplined destocking is more valuable than defending near-term revenue.
-      confidence: medium
 
 chemicals_and_gases:
   label: Chemicals and Gases
@@ -747,17 +642,14 @@ chemicals_and_gases:
       pattern: Pricing and productivity exceed energy and feedstock inflation while volumes remain stable or positive.
       observed_significance: positive
       context: Linde paired price and volume growth with a 29.5% adjusted operating margin.
-      confidence: high
     - id: CHEMICALS_AND_GASES_2
       pattern: Sales growth is overwhelmingly price-led while volume declines and maintenance costs rise.
       observed_significance: negative
       context: Dow's 20% local-price increase against lower volume illustrates why nominal sales can mislead.
-      confidence: high
     - id: CHEMICALS_AND_GASES_3
       pattern: Electronics, AI, manufacturing, or energy backlog supports a guide raise without disproportionate capex.
       observed_significance: positive
       context: Contracted, take-or-pay projects create more valuable growth than uncommitted capacity.
-      confidence: high
 
 construction_non_wood:
   label: Construction (Non-Wood)
@@ -767,17 +659,14 @@ construction_non_wood:
       pattern: North American volumes and backlog rise while price-cost remains favorable.
       observed_significance: positive
       context: Caterpillar's construction growth and margin expansion validate real demand plus operating leverage.
-      confidence: high
     - id: CONSTRUCTION_NON_WOOD_2
       pattern: Revenue grows but margins compress from steel, cement, energy, freight, or tariffs.
       observed_significance: negative
       context: Healthy demand makes failure to pass through costs appear company-specific.
-      confidence: high
     - id: CONSTRUCTION_NON_WOOD_3
       pattern: Backlog rises while cancellations, financing delays, or working-capital use worsen.
       observed_significance: negative
       context: Funded public and infrastructure work deserves more credit than speculative commercial backlog.
-      confidence: medium_high
 
 containers_and_packaging:
   label: Containers and Packaging
@@ -787,17 +676,14 @@ containers_and_packaging:
       pattern: Containerboard or paper price increases flow into box pricing before fiber and energy costs rise.
       observed_significance: positive
       context: Closing International Paper's lag between paper and box pricing is the central earnings lever.
-      confidence: high
     - id: CONTAINERS_AND_PACKAGING_2
       pattern: Price-led sales are offset by soft volumes, maintenance, or conversion costs and lower segment profit.
       observed_significance: negative
       context: Higher nominal pricing has little value if box demand and operating profit deteriorate.
-      confidence: high
     - id: CONTAINERS_AND_PACKAGING_3
       pattern: Acquisition or restructuring synergies are realized in cash and margin while service levels hold.
       observed_significance: positive
       context: A consolidating sector is being judged on realized savings rather than announced targets.
-      confidence: medium_high
 
 forestry:
   label: Forestry
@@ -807,17 +693,14 @@ forestry:
       pattern: Lumber or pulp realizations improve with stable shipments and lower conversion costs.
       observed_significance: positive
       context: Price and volume together confirm tightening; price alone may reflect tariffs or curtailment.
-      confidence: medium
     - id: FORESTRY_2
       pattern: Higher prices accompany falling volume, mill downtime, and fixed-cost under-absorption.
       observed_significance: negative
       context: Price-led growth is low quality when utilization and cash conversion deteriorate.
-      confidence: medium_high
     - id: FORESTRY_3
       pattern: Capacity curtailment materially reduces cash burn and inventory while capex stays restrained.
       observed_significance: positive
       context: A disciplined supply response is preferable in a cyclical and energy-intensive business.
-      confidence: medium
 
 metals_minerals_and_mining:
   label: Metals, Minerals and Mining
@@ -827,19 +710,16 @@ metals_minerals_and_mining:
       pattern: Higher commodity prices combine with production growth, raised sales guidance, and controlled unit costs.
       observed_significance: positive
       context: Operating gains prove leverage beyond a pure commodity mark-to-market benefit.
-      confidence: high
     - id: METALS_MINERALS_AND_MINING_2
       pattern: >
         Profit beats on commodity price alone while production misses and unit costs rise.
         An unchanged guide is only a mild negative unless investors clearly expected a raise.
       observed_significance: negative
       context: Freeport and Aurubis reactions demonstrate that an elevated tape requires operational upside.
-      confidence: high
     - id: METALS_MINERALS_AND_MINING_3
       pattern: Domestic protected producers realize price increases with strong shipments and margin expansion.
       observed_significance: positive
       context: Protectionism favors domestic steel producers that convert price into volume and margin.
-      confidence: high
 
 textiles:
   label: Textiles
@@ -849,17 +729,14 @@ textiles:
       pattern: Sourcing and tariff actions preserve gross margin without order cancellations or inventory buildup.
       observed_significance: positive
       context: Diversified sourcing and contracted pricing make pass-through more durable.
-      confidence: medium_high
     - id: TEXTILES_2
       pattern: Sales growth comes from price while unit volume, retailer reorders, or utilization decline.
       observed_significance: negative
       context: Consumer value migration makes price-led growth fragile and raises downstream markdown risk.
-      confidence: medium_high
     - id: TEXTILES_3
       pattern: Inventory days and promotional allowances fall while margin and cash conversion improve.
       observed_significance: positive
       context: Clean channel inventory is the best confirmation that production matches end demand.
-      confidence: medium
 
 other_materials:
   label: Other Materials
@@ -869,17 +746,14 @@ other_materials:
       pattern: Price-cost spread improves while volumes remain positive across end markets.
       observed_significance: positive
       context: Balanced volume and margin improvement is the cleanest signal under manufacturing expansion and elevated inputs.
-      confidence: medium_high
     - id: OTHER_MATERIALS_2
       pattern: Sales rise through commodity inflation while physical volume and FCF decline.
       observed_significance: negative
       context: Nominal growth does not establish demand or value creation without cash conversion.
-      confidence: high
     - id: OTHER_MATERIALS_3
       pattern: Maintenance or capacity capex rises without contracted demand or quantified payback.
       observed_significance: negative
       context: Funding and monetization scrutiny extends beyond tech to long-dated materials projects.
-      confidence: medium_high
 
 sources:
   - title: Q3 2026 Sector Research Briefing
