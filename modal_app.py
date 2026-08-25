@@ -38,7 +38,7 @@ parameter and rejects every delivery with 422.
 
 import modal
 
-app = modal.App("explaining-markets-starter")
+app = modal.App("explaining-markets-claude-minimized")
 
 image = (
     modal.Image.debian_slim()
@@ -58,8 +58,8 @@ image = (
 #
 # Marking an event done up front would be the bug: a failed prediction would
 # look handled. This Dict persists across redeploys, so "done" is durable.
-seen_webhooks = modal.Dict.from_name("em-webhook-dedupe", create_if_missing=True)
-prediction_ledger = modal.Dict.from_name("em-prediction-ledger", create_if_missing=True)
+seen_webhooks = modal.Dict.from_name("em-webhook-dedupe-claude-minimized", create_if_missing=True)
+prediction_ledger = modal.Dict.from_name("em-prediction-ledger-claude-minimized", create_if_missing=True)
 
 # Credentials are read from your local .env at deploy time (see .env.example).
 # Prefer Modal's secret store instead? See docs/advanced.md.
@@ -100,6 +100,37 @@ def _release(webhook_id, submitted):
         seen_webhooks.pop(webhook_id, None)
 
 
+def _submission_rows(event, detailed):
+    """Build the minimal API payload; metadata is never submission-critical.
+
+    A missing/malformed row falls back to neutral for that focal asset.  This
+    also prevents an empty model result from becoming an accepted-looking
+    request containing no predictions.
+    """
+    by_ticker = {}
+    for row in detailed or []:
+        if not isinstance(row, dict):
+            continue
+        ticker = row.get("identifier_value")
+        value = row.get("predicted_percentile")
+        try:
+            value = float(value)
+        except (TypeError, ValueError):
+            continue
+        if ticker and 0.0 <= value <= 1.0:
+            by_ticker[ticker] = value
+
+    predictions = []
+    for asset in event.get("focal_assets", []):
+        ticker = asset.get("identifier_value")
+        if ticker:
+            predictions.append({
+                "identifier_value": ticker,
+                "predicted_percentile": by_ticker.get(ticker, 0.5),
+            })
+    return predictions
+
+
 @app.function(image=image, secrets=secrets, timeout=600, retries=0)
 def predict_and_submit(event: dict, webhook_id: str | None = None):
     """Run the model and submit the prediction, off the request path.
@@ -112,12 +143,13 @@ def predict_and_submit(event: dict, webhook_id: str | None = None):
     from explaining_markets.client import submit_predictions
     from explaining_markets.config import Config
     from explaining_markets.event_utils import is_test, neutral_predictions
-    from predict import predict_with_metadata
 
     submitted = False
     detailed = None
     try:
         if not is_test(event):
+            from predict import predict_with_metadata
+
             # A prediction failure must not become a NON-submission. `predict.py`
             # already falls back to 0.5 on a model error, but the summary fetch
             # ahead of it can raise (`raise_for_status`), and that used to
@@ -135,43 +167,49 @@ def predict_and_submit(event: dict, webhook_id: str | None = None):
                 )
                 detailed = None
 
-        predictions = neutral_predictions(event) if detailed is None else [
-            {
-                "identifier_value": row["identifier_value"],
-                "predicted_percentile": row["predicted_percentile"],
-            }
-            for row in detailed
-        ]
+        predictions = (
+            neutral_predictions(event)
+            if detailed is None
+            else _submission_rows(event, detailed)
+        )
         submit_predictions(
             event_id=event["event_id"],
             predictions=predictions,
             config=Config.from_env(),
         )
         submitted = True
-        if detailed is not None:
+        # Submission has already succeeded. Everything below is best-effort
+        # observability and must not affect the dedupe state or submission.
+        if detailed:
             for row in detailed:
+                if not isinstance(row, dict) or not row.get("identifier_value"):
+                    continue
                 ticker = row["identifier_value"]
-                # `.get` throughout: a ledger write must never be the thing that
-                # loses an already-successful submission.
-                prediction_ledger[f'{event["event_id"]}:{ticker}'] = {
-                    "event_id": event["event_id"],
-                    "ticker": ticker,
-                    "prompt_version": row.get("prompt_version"),
-                    "knowledge_version": row.get("knowledge_version"),
-                    "predicted_percentile": row.get("predicted_percentile"),
-                    "confidence": row.get("confidence"),
-                    "direction": row.get("direction"),
-                    "rules_applied": row.get("rules_applied"),
-                    "expected_abnormal_return_pct": row.get(
-                        "expected_abnormal_return_pct"
-                    ),
-                    "key_metrics": row.get("key_metrics"),
-                    "guidance": row.get("guidance"),
-                    "result_quality": row.get("result_quality"),
-                    "expectation_gap": row.get("expectation_gap"),
-                    "realized_abnormal": None,
-                    "realized_percentile": None,
-                }
+                try:
+                    prediction_ledger[f'{event["event_id"]}:{ticker}'] = {
+                        "event_id": event["event_id"],
+                        "ticker": ticker,
+                        "prompt_version": row.get("prompt_version"),
+                        "knowledge_version": row.get("knowledge_version"),
+                        "predicted_percentile": row.get("predicted_percentile"),
+                        "confidence": row.get("confidence"),
+                        "direction": row.get("direction"),
+                        "rules_applied": row.get("rules_applied"),
+                        "expected_abnormal_return_pct": row.get(
+                            "expected_abnormal_return_pct"
+                        ),
+                        "key_metrics": row.get("key_metrics"),
+                        "guidance": row.get("guidance"),
+                        "result_quality": row.get("result_quality"),
+                        "expectation_gap": row.get("expectation_gap"),
+                        "realized_abnormal": None,
+                        "realized_percentile": None,
+                    }
+                except Exception as exc:
+                    print(
+                        f"[WARN] ledger write failed for {event.get('event_id')}:"
+                        f"{ticker}: {type(exc).__name__}: {exc}"
+                    )
     except Exception as exc:
         # Log loudly — `modal app logs explaining-markets-starter` finds it.
         print(f"[ERROR] submission failed for event {event.get('event_id')}: {exc}")
@@ -180,7 +218,7 @@ def predict_and_submit(event: dict, webhook_id: str | None = None):
 
 
 @app.function(image=image, secrets=secrets)
-@modal.asgi_app(label="explaining-markets")
+@modal.asgi_app(label="claude-minimized")
 def web():
     from fastapi import FastAPI, Request, Response
 
