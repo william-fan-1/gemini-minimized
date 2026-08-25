@@ -17,7 +17,7 @@ from litellm import completion
 from pydantic import BaseModel
 
 # Adjust the prompt version
-PROMPT_VERSION = "3.0.0"
+PROMPT_VERSION = "4.0.0"
 
 # Paths to prompt file, rulebooks, industry map
 ROOT = Path(__file__).resolve().parent
@@ -82,9 +82,6 @@ class IndustryTag(BaseModel):
 @dataclass(frozen=True)
 class PromptRules:
     """Serialized rule sections inserted into the prompt template."""
-    core_directive: str
-    precedence: str
-    anti_patterns: str
     global_rules: str
     industry_rules: str
 
@@ -241,7 +238,7 @@ def _load_block_from_global(
     global_playbook = load_yaml(GLOBAL_PATH)
     block = global_playbook.get(key, [])
 
-    if key == "rules" and not include_dossier_rule:
+    if key == "observations" and not include_dossier_rule:
         block = [
             rule
             for rule in block
@@ -252,33 +249,12 @@ def _load_block_from_global(
 
     return yaml.safe_dump(block, sort_keys=False)
 
-def _load_core_directive(include_dossier_rule: bool = True) -> str:
-    """Serialize the global principles used as the prompt's core directive."""
-    return _load_block_from_global(
-        "principles",
-        include_dossier_rule=include_dossier_rule,
-    )
-
-def _load_precedence_rules(include_dossier_rule: bool = True) -> str:
-    """Serialize the rules for resolving conflicting prompt evidence."""
-    return _load_block_from_global(
-        "precedence",
-        include_dossier_rule=include_dossier_rule,
-    )
-
-def _load_anti_patterns(include_dossier_rule: bool = True) -> str:
-    """Serialize global instructions describing when rules should not fire."""
-    return _load_block_from_global(
-        "anti_patterns",
-        include_dossier_rule=include_dossier_rule,
-    )
-
 def _load_global_rules(
     include_dossier_rule: bool = True
 ) -> str:
     """Serialize global rules, optionally excluding the dossier modifier."""
     return _load_block_from_global(
-        "rules",
+        "observations",
         include_dossier_rule=include_dossier_rule,
     )
 
@@ -298,15 +274,6 @@ def load_prompt_rules(
     A named collection of serialized sections ready for substitution.
     """
     return PromptRules(
-        core_directive=_load_core_directive(
-            include_dossier_rule=include_dossier_rule,
-        ),
-        precedence=_load_precedence_rules(
-            include_dossier_rule=include_dossier_rule,
-        ),
-        anti_patterns=_load_anti_patterns(
-            include_dossier_rule=include_dossier_rule,
-        ),
         global_rules=_load_global_rules(
             include_dossier_rule=include_dossier_rule,
         ),
@@ -390,24 +357,9 @@ def get_dossier(ticker: str, knowledge_cutoff: str | None = None) -> str | None:
     if not isinstance(dossier, dict):
         return None
 
-    estimates = dossier.get(FORWARD_ESTIMATES_KEY)
-    if estimates is not None:
-        as_of = estimates.get("as_of") if isinstance(estimates, dict) else None
-
-        # Remove knowledge cutoff check as we should be well beyond the cutoff now
-        # Also model wasn't comparing knowledge_cutoff in logs, either due to 
-        # improper accessing or not being given it in the event
-
-        # if not forward_estimates_permitted(as_of, knowledge_cutoff):
-        #     dossier = {
-        #         key: value
-        #         for key, value in dossier.items()
-        #         if key != FORWARD_ESTIMATES_KEY
-        #     }
-        #     print(
-        #         f"[INFO] {ticker}: forward_estimates withheld "
-        #         f"(as_of={as_of!r}, knowledge_cutoff={knowledge_cutoff!r})"
-        #     )
+    # Remove knowledge cutoff check as we should be well beyond the cutoff now
+    # Also model wasn't comparing knowledge_cutoff in logs, either due to 
+    # improper accessing or not being given it in the event
 
     return yaml.safe_dump(
         _filter_dossier_fields(dossier),
@@ -491,16 +443,10 @@ def construct_prompt(
         prompt_template
         # Summary of transcript
         .replace("{summary_text}", summary_text)
-        # Objective to complete
-        .replace("{core_directive}", rules.core_directive)
         # Industry specific trends to consider
         .replace("{industry_rules}", rules.industry_rules)
         # Previous earnings results
         .replace("{dossier}", dossier)
-        # Rules on how to handle conflicting rules
-        .replace("{precedence}", rules.precedence)
-        # When not to fire
-        .replace("{anti_patterns}", rules.anti_patterns)
         # Global rules
         .replace("{global_rules}", rules.global_rules)
     )
